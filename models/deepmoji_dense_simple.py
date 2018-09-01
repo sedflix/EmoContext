@@ -19,7 +19,7 @@ def get_model_1():
     return model
 
 
-def get_model_2()
+def get_model_2():
     """This is regularised"""
     inputs = Input(shape=(6912,))
     model = Dense(3951, activation='relu')(inputs)
