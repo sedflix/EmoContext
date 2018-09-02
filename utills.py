@@ -72,7 +72,7 @@ def use_deepmoji(maxlen=MAXLEN,
     return st, model
 
 
-def test_file_to_feature_vectors(test_file_path=TEST_DATA_FILE):
+def test_file_to_feature_vectors(test_file_path=TEST_DATA_FILE, is_label=True):
     """
     Read the file as given in the dataset
     :param test_file_path:
@@ -93,18 +93,23 @@ def test_file_to_feature_vectors(test_file_path=TEST_DATA_FILE):
         tokenized, _, _ = st.tokenize_sentences([df['turn1'][i], df['turn2'][i], df['turn3'][i]])
         encoding = model.predict(tokenized)
         x.append(encoding)
-        y.append(df['label'][i])
+        if is_label:
+            y.append(df['label'][i])
         if i % 1000 == 0:
             print ("Done %dth sample" % i)
     print ("Conversion Done")
 
     # #TODO: Save data such that you don't have to change the it to categorical and concatenate
-    # for i in range(len(y)):
-    #     y[i] = emotion2label[y[i]]
-    #     x[i] = np.concatenate(x[i], axis=None)
-    # y = to_categorical(y)
+    for i in range(len(x)):
+        if is_label:
+            y[i] = emotion2label[y[i]]
+        x[i] = np.concatenate(x[i], axis=None)
 
-    return x, y
+    if is_label:
+        y = to_categorical(y)
+        return x, y
+    else:
+        return x
 
 
 def getMetrics(predictions, ground):
