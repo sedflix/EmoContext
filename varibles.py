@@ -1,5 +1,5 @@
-DEEPMOJI_WEIGHT_FILE = './DeepMoji/model/deepmoji_weights.hdf5'
-DEEPMOJI_VOCAB_FILE = './DeepMoji/model/vocabulary.json'
+DEEPMOJI_WEIGHT_FILE = '../DeepMoji/model/deepmoji_weights.hdf5'
+DEEPMOJI_VOCAB_FILE = '../DeepMoji/model/vocabulary.json'
 MAXLEN = 20
 
 TEST_DATA_FILE = './data/train.txt'
