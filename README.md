@@ -4,9 +4,10 @@ A Shared Task on Contextual Emotion Detection in Text.
 
 ## Usage
 
-There are two different notebooks. Each of them requires a different configuration to run.   
+There are two different notebooks. Each of them requires a different configuration to run.     
 
-For `notebooks/EmoContext_DeepMojiModels.ipynb` use the following the method(Just a heads up: installing DeepMoji is not a trivial task).
+For `notebooks/EmoContext_DeepMojiModels.ipynb` use the following the method. Just a heads up - installing DeepMoji is not a trivial task.
+
 ```
 docker build -t emo .
 nvidia-docker run -it -v "$PWD":/app -p 8888:8888 emo
@@ -41,4 +42,5 @@ Details all of ours experiments can be found in the following two documents.
 
 ## Results
 
-Our best model had a f1 score of ~0.68 on the `devwithoutlabels.txt`.  More details can see [on codalab competitions result](https://competitions.codalab.org/competitions/19790#results). Our team name is `chaicoffee`.  
+Our best model had a f1 score of ~0.68 on the `devwithoutlabels.txt`.  
+More details can see [on codalab competitions result](https://competitions.codalab.org/competitions/19790#results). Our team name is `chaicoffee`.  
